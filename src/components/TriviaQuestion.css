@@ -1,0 +1,43 @@
+.TriviaQuestion .attempted {
+  pointer-events: none;
+}
+
+.TriviaQuestion .question {
+  font-weight: bold;
+}
+
+.TriviaQuestion .question.attempted {
+  color: gray;
+  font-weight: normal;
+}
+
+.TriviaQuestion .answers {
+  display: flex;
+  flex-direction: row;
+}
+
+.TriviaQuestion .answer {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+.TriviaQuestion .answer:hover {
+  font-weight: bold;
+}
+
+.TriviaQuestion .answer.attempted {
+  border: 1px solid gray;
+}
+
+.TriviaQuestion .answer.attempted.correct {
+  background-color: lightgreen;
+}
+
+.TriviaQuestion .answer.attempted.incorrect {
+  color: gray;
+}
+
+.TriviaQuestion .answer.attempted.incorrect.guessed {
+  background-color: lightcoral;
+}

@@ -1,0 +1,9 @@
+.SearchForm {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.SearchForm .input {
+  margin: 5px;
+}
