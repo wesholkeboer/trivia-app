@@ -40,14 +40,8 @@ const Main = () => {
           handleSubmitUsername={handleSubmitUsername}
         />
       )}
-
       {!questions.length && nameEntered && (
         <SearchForm setQuestions={setQuestions} />
-      )}
-      {!!questions.length && (
-        <p>
-          correct answers: {correctAnswers} / {questions.length}
-        </p>
       )}
       {questions &&
         questions.map((question, index) => {
@@ -55,7 +49,9 @@ const Main = () => {
             <TriviaQuestion
               question={question}
               key={index}
+              index={index}
               setCorrectAnswers={setCorrectAnswers}
+              answeredQuestionsCount={answeredQuestionsCount}
               setAnsweredQuestionsCount={setAnsweredQuestionsCount}
             />
           );

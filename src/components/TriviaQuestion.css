@@ -1,3 +1,11 @@
+.TriviaQuestion.show {
+  display: list-item;
+}
+
+.TriviaQuestion.hide {
+  display: none;
+}
+
 .TriviaQuestion .attempted {
   pointer-events: none;
 }

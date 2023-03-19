@@ -1,37 +1,34 @@
 import { useState, useEffect } from "react";
+import shuffleArray from "../fixtures/shuffleArray";
 import "./TriviaQuestion.css";
 
 interface Props {
   question: any;
   setCorrectAnswers: any;
+  answeredQuestionsCount: number;
   setAnsweredQuestionsCount: any;
+  index: number;
 }
-
-const shuffleArray = (array: string[]) => {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    const temp = array[i];
-    array[i] = array[j];
-    array[j] = temp;
-  }
-  return array;
-};
 
 const TriviaQuestion = ({
   question,
   setCorrectAnswers,
+  answeredQuestionsCount,
   setAnsweredQuestionsCount,
+  index,
 }: Props) => {
   const [attempted, setAttempted] = useState<boolean>(false);
   const [guessed, setGuessed] = useState<string>("");
   const [options] = useState<string[]>(
     shuffleArray([...question.incorrectAnswers, question.correctAnswer])
   );
+  const [showQuestion, setShowQuestion] = useState<boolean>(false);
 
-  // const options = [...question.incorrectAnswers, question.correctAnswer];
-  // useEffect(() => {
-  //   shuffleArray(options);
-  // }, []);
+  useEffect(() => {
+    if (answeredQuestionsCount === index) {
+      setShowQuestion(true);
+    }
+  }, [answeredQuestionsCount, index]);
 
   const handleGuess = (e: any, option: string) => {
     e.preventDefault();
@@ -44,7 +41,7 @@ const TriviaQuestion = ({
   };
 
   return (
-    <li className='TriviaQuestion'>
+    <li className={`TriviaQuestion ${showQuestion ? "show" : "hide"}`}>
       <p className={`question  ${attempted ? "attempted" : ""}`}>
         {question.question}
       </p>
