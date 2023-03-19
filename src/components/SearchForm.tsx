@@ -41,7 +41,6 @@ const SearchForm = ({ setQuestions }: Props) => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     getTriviaQuestions(searchParams).then((res) => {
-      console.log(res);
       setQuestions(res);
     });
   };

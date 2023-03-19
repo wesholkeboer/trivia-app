@@ -4,6 +4,7 @@ import "./TriviaQuestion.css";
 interface Props {
   question: any;
   setCorrectAnswers: any;
+  setAnsweredQuestionsCount: any;
 }
 
 const shuffleArray = (array: string[]) => {
@@ -16,7 +17,11 @@ const shuffleArray = (array: string[]) => {
   return array;
 };
 
-const TriviaQuestion = ({ question, setCorrectAnswers }: Props) => {
+const TriviaQuestion = ({
+  question,
+  setCorrectAnswers,
+  setAnsweredQuestionsCount,
+}: Props) => {
   const [attempted, setAttempted] = useState<boolean>(false);
   const [guessed, setGuessed] = useState<string>("");
   const [options] = useState<string[]>(
@@ -35,6 +40,7 @@ const TriviaQuestion = ({ question, setCorrectAnswers }: Props) => {
     }
     setAttempted(true);
     setGuessed(option);
+    setAnsweredQuestionsCount((prev: number) => prev + 1);
   };
 
   return (
@@ -46,6 +52,7 @@ const TriviaQuestion = ({ question, setCorrectAnswers }: Props) => {
         {options.map((option) => {
           return (
             <p
+              key={option}
               onClick={(e) => handleGuess(e, option)}
               className={`answer ${attempted ? "attempted" : ""} ${
                 option === question.correctAnswer ? "correct" : "incorrect"
