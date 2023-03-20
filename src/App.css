@@ -1,0 +1,47 @@
+body {
+  height: 100%;
+  width: 100%;
+}
+
+p,
+label,
+input,
+option,
+select,
+button,
+a {
+  font-size: 18px;
+}
+
+button {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+body .darkMode {
+  background-color: rgb(46, 46, 46);
+  color: rgb(255, 255, 255);
+}
+
+.darkMode .TriviaQuestion .answer {
+  border: 1px solid white;
+}
+
+.darkMode .TriviaQuestion .answer.attempted.correct {
+  background-color: darkgreen;
+}
+
+.darkMode button {
+  background-color: rgb(46, 46, 46);
+  color: white;
+  border: 1px solid white;
+}
+
+.darkMode .EndScreen .modal {
+  background-color: rgb(46, 46, 46);
+}
+
+.darkMode .EndScreen .modal a {
+  color: white;
+}

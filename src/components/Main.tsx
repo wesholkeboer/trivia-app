@@ -43,21 +43,26 @@ const Main = () => {
       {!questions.length && nameEntered && (
         <SearchForm setQuestions={setQuestions} />
       )}
-      {questions &&
-        questions.map((question, index) => {
-          return (
-            <TriviaQuestion
-              question={question}
-              key={index}
-              index={index}
-              setCorrectAnswers={setCorrectAnswers}
-              answeredQuestionsCount={answeredQuestionsCount}
-              setAnsweredQuestionsCount={setAnsweredQuestionsCount}
-            />
-          );
-        })}
+      <ul className='questionsList'>
+        {questions &&
+          questions.map((question, index) => {
+            return (
+              <TriviaQuestion
+                question={question}
+                key={index}
+                index={index}
+                setCorrectAnswers={setCorrectAnswers}
+                answeredQuestionsCount={answeredQuestionsCount}
+                setAnsweredQuestionsCount={setAnsweredQuestionsCount}
+              />
+            );
+          })}
+      </ul>
+
       {answeredQuestionsCount === questions.length && questions.length > 0 && (
-        <button onClick={handleSubmitScore}>go to results page</button>
+        <button className='resultsPageButton' onClick={handleSubmitScore}>
+          click here to go and see your results
+        </button>
       )}
     </main>
   );

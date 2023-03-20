@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Main from "./components/Main";
@@ -11,10 +11,19 @@ import {
 import EndScreen from "./components/EndScreen";
 
 function App() {
+  const [darkModeEnabled, setDarkModeEnabled] = useState(true);
+
+  const toggleDarkMode = () => {
+    setDarkModeEnabled((prev) => !prev);
+  };
+
   return (
-    <div className='App'>
+    <div className={`App ${darkModeEnabled ? "dark" : "light"}Mode`}>
       <Router>
-        <Header />
+        <Header
+          toggleDarkMode={toggleDarkMode}
+          darkModeEnabled={darkModeEnabled}
+        />
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='/end' element={<EndScreen />} />

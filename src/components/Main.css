@@ -1,3 +1,14 @@
 .Main {
   margin-left: 10px;
 }
+
+.Main .resultsPageButton {
+  margin: 25px 50px;
+  padding: 5px;
+  font-weight: bold;
+}
+
+.Main .questionsList {
+  display: flex;
+  flex-direction: column;
+}

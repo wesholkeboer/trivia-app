@@ -15,7 +15,7 @@ const UsernameForm = ({
   return (
     <form className='UsernameForm' onSubmit={handleSubmitUsername}>
       <label>
-        enter your username:{" "}
+        enter your name:{" "}
         <input
           type='text'
           id='username'
@@ -23,7 +23,7 @@ const UsernameForm = ({
           onChange={(e) => setUsername(e.target.value)}
         />
       </label>
-      {username !== "" && <button>my username is in the box now</button>}
+      {username !== "" && <button>my name is in the box now</button>}
     </form>
   );
 };

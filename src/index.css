@@ -1,6 +1,18 @@
-body {
+body,
+ul {
   margin: 0;
   padding: 0;
+}
+
+body > #root > div {
+  min-height: 100vh;
+}
+
+html,
+body,
+#app,
+#app > div {
+  height: 100%;
 }
 
 li {

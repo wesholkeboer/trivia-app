@@ -6,6 +6,10 @@
   align-items: center;
 }
 
+.EndScreen {
+  overflow: hidden;
+}
+
 .EndScreen .xAndOArray {
   overflow-wrap: break-word;
   width: 100%;
@@ -26,19 +30,26 @@
   flex-direction: column;
   border: 1px solid black;
   background-color: white;
-  opacity: 0.9;
+  opacity: 0.95;
   width: fit-content;
   height: fit-content;
   padding: 5px;
-  animation: fadeIn 3s;
-  -webkit-animation: fadeIn 3s;
-  -moz-animation: fadeIn 3s;
-  -o-animation: fadeIn 3s;
-  -ms-animation: fadeIn 3s;
+  animation: fadeIn 4s;
+  -webkit-animation: fadeIn 4s;
+  -moz-animation: fadeIn 4s;
+  -o-animation: fadeIn 4s;
+  -ms-animation: fadeIn 4s;
+}
+
+.EndScreen .modal a {
+  font-weight: bold;
 }
 
 @keyframes fadeIn {
   0% {
+    opacity: 0;
+  }
+  50% {
     opacity: 0;
   }
   100% {

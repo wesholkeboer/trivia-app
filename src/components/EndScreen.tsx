@@ -20,7 +20,8 @@ const EndScreen = () => {
   );
 
   const xAndOMaker = (percentage: number) => {
-    for (let i = 0; i < 1000; i++) {
+    let xAndOLength = window.innerWidth * 1.75;
+    for (let i = 0; i < xAndOLength; i++) {
       Math.random() < percentage
         ? setXAndOArray((prev) => [...prev, "O"])
         : setXAndOArray((prev) => [...prev, "X"]);
@@ -42,11 +43,11 @@ const EndScreen = () => {
           {scores[scores.length - 1].numberAttempted} total questions
         </p>
         <p>
-          {percentage < 0.5
-            ? "I feel like you could hvae done better"
-            : "nice job as always"}
+          {percentage < 0.5 && "I feel like you could hvae done better maybe"}
+          {percentage > 0.5 && "nice job as always"}
+          {percentage === 0.5 && "thatt's around half of them"}
         </p>
-        <Link to='/'>start over</Link>
+        <Link to='/'>click here to start over</Link>
       </div>
       <h4 className='xAndOArray'>
         {xAndOArray.map((item, index) => {

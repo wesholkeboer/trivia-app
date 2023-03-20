@@ -45,10 +45,10 @@ const TriviaQuestion = ({
       <p className={`question  ${attempted ? "attempted" : ""}`}>
         {question.question}
       </p>
-      <div className='answers'>
+      <ul className='answers'>
         {options.map((option) => {
           return (
-            <p
+            <li
               key={option}
               onClick={(e) => handleGuess(e, option)}
               className={`answer ${attempted ? "attempted" : ""} ${
@@ -60,10 +60,10 @@ const TriviaQuestion = ({
               }`}
             >
               {option}
-            </p>
+            </li>
           );
         })}
-      </div>
+      </ul>
     </li>
   );
 };

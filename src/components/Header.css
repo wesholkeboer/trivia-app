@@ -1,0 +1,19 @@
+.Header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.Header.lightMode {
+  border-bottom: 1px solid black;
+}
+
+.Header button {
+  height: fit-content;
+}
+
+.Header.darkMode {
+  border-bottom: 1px solid white;
+}

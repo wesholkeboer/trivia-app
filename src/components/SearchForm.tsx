@@ -59,10 +59,10 @@ const SearchForm = ({ setQuestions }: Props) => {
             setSearchParams({ ...searchParams, difficulty: e.target.value })
           }
         >
-          <option value=''>select an option</option>
-          <option value='easy'>Easy</option>
-          <option value='medium'>Medium</option>
-          <option value='hard'>Hard</option>
+          <option value=''>mix</option>
+          <option value='easy'>chill</option>
+          <option value='medium'>medium</option>
+          <option value='hard'>hard</option>
         </select>
       </label>
       <label className='input'>
