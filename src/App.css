@@ -40,6 +40,7 @@ body .darkMode {
 
 .darkMode .EndScreen .modal {
   background-color: rgb(46, 46, 46);
+  border: 1px solid white;
 }
 
 .darkMode .EndScreen .modal a {

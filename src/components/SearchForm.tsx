@@ -6,9 +6,10 @@ import SearchRequest from "../models/SearchRequest";
 
 interface Props {
   setQuestions: any;
+  setSelections(params: any): void;
 }
 
-const SearchForm = ({ setQuestions }: Props) => {
+const SearchForm = ({ setQuestions, setSelections }: Props) => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [searchParams, setSearchParams] = useState<SearchRequest>({});
 
@@ -40,6 +41,9 @@ const SearchForm = ({ setQuestions }: Props) => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    setSelections({
+      ...searchParams,
+    });
     getTriviaQuestions(searchParams).then((res) => {
       setQuestions(res);
     });

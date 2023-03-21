@@ -9,6 +9,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import EndScreen from "./components/EndScreen";
+import HighScoresContainer from "./components/HighScoresContainer";
 
 function App() {
   const [darkModeEnabled, setDarkModeEnabled] = useState(true);
@@ -27,6 +28,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='/end' element={<EndScreen />} />
+          <Route path='/highscores' element={<HighScoresContainer />} />
           <Route path='*' element={<Navigate to='/' />} />
         </Routes>
       </Router>

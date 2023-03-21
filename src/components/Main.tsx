@@ -5,15 +5,19 @@ import TriviaQuestion from "./TriviaQuestion";
 import ScoresContext from "../context/ScoresContext";
 import { useNavigate } from "react-router-dom";
 import UsernameForm from "./UsernameForm";
+import SearchRequest from "../models/SearchRequest";
+import { addScoreToDatabase } from "../services/ScoresDBApiService";
 
 const Main = () => {
   const { addScore } = useContext(ScoresContext);
-  const [questions, setQuestions] = useState([]);
-  const [correctAnswers, setCorrectAnswers] = useState<number>(0);
   const [answeredQuestionsCount, setAnsweredQuestionsCount] =
     useState<number>(0);
-  const [username, setUsername] = useState<string>("");
+  const [correctAnswers, setCorrectAnswers] = useState<number>(0);
   const [nameEntered, setNameEntered] = useState<boolean>(false);
+  const [questions, setQuestions] = useState([]);
+  const [selections, setSelections] = useState<SearchRequest>({});
+  const [username, setUsername] = useState<string>("");
+
   const navigate = useNavigate();
 
   const handleSubmitUsername = (e: FormEvent) => {
@@ -23,11 +27,16 @@ const Main = () => {
 
   const handleSubmitScore = (e: FormEvent) => {
     e.preventDefault();
-    addScore({
+    let newScore = {
       name: username,
-      numberCorrect: correctAnswers,
+      numberCorrect: correctAnswers || 0,
       numberAttempted: questions.length,
-    });
+      categories: selections.categories || "mix",
+      difficulty: selections.difficulty || "mix",
+      limit: selections.limit || "10",
+    };
+    addScore(newScore);
+    addScoreToDatabase(newScore);
     navigate("/end");
   };
 
@@ -41,7 +50,7 @@ const Main = () => {
         />
       )}
       {!questions.length && nameEntered && (
-        <SearchForm setQuestions={setQuestions} />
+        <SearchForm setQuestions={setQuestions} setSelections={setSelections} />
       )}
       <ul className='questionsList'>
         {questions &&
